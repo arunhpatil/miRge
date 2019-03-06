@@ -257,14 +257,15 @@ def analyzeAlignment(preMiRSeqOut, mirnaLibSeqOut, mirnaSeqOut, readSeqOut):
 		for i in range(start1, end1):
 			if readSeqOut[i] != '-' and readSeqOut[i] != mirnaSeqOut[i]:
 				iso_snp_status = True
-				if i >=1 and i <= 6:
+				j = (i - start1)
+				if j >=1 and j <= 6:
 					iso_snp_pos = '_seed'
-				elif i == 7:
+				elif j == 7:
 					iso_snp_pos = '_central_offset'
-				elif i >= 8 and i <= 11:
+				elif j >= 8 and j <= 11:
 					iso_snp_pos = '_central'
-				elif i >=12 and i <= 16:
-					iso_snp_pos = 'central_supp'
+				elif j >=12 and j <= 16:
+					iso_snp_pos = '_central_supp'
 				else:
 					iso_snp_pos = ''
 				break
